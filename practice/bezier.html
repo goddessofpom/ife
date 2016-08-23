@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<title>贝塞尔曲线运动</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+</body>
+<script type="text/javascript">
+    var canvas = document.getElementById('canvas')
+    var ctx = canvas.getContext('2d')
+    ctx.beginPath()
+    ctx.moveTo(20,20)
+    ctx.quadraticCurveTo(80,50,180,150);
+    ctx.strokeStyle = "red"
+    ctx.stroke()
+    ctx.beginPath()
+    ctx.moveTo(200,200)
+    ctx.bezierCurveTo(60,80,150,30,400,400)
+    ctx.strokeStyle = "blue"
+    ctx.stroke()
+    
+    function bezier(startx,starty,endx,endy){
+    	this.x = startx
+    	this.y = starty
+    	this.move = function(){
+    		ctx.beginPath()
+    		ctx.moveTo(this.x,this.y)
+    	}
+    }
+</script>
+</html>
